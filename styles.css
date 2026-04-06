@@ -1,103 +1,21 @@
-/* 1. RESET & BASE */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1a2e2e; background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-button { cursor: pointer; font-family: inherit; border: none; background: none; }
+/* 8. ABOUT - FIXED TO MATCH GALLERY HEIGHT */
+.about { padding: 100px 0; background: var(--teal-bg); text-align: center; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 48px; text-align: left; }
 
-/* 2. TOKENS */
-:root {
-  --teal: #48C6B9;
-  --teal-dark: #0d7070;
-  --teal-mid: #2aa898;
-  --teal-light: #e8f8f7;
-  --teal-bg: #f0fafa;
-  --text: #1a2e2e;
-  --text-muted: #5a7070;
-  --border: #d4eded;
-  --white: #ffffff;
-  --shadow-sm: 0 2px 8px rgba(13,112,112,0.08);
-  --shadow-md: 0 8px 32px rgba(13,112,112,0.12);
-  --shadow-lg: 0 20px 60px rgba(13,112,112,0.16);
-  --radius: 16px;
-  --radius-sm: 10px;
-  --radius-lg: 24px;
-}
-
-/* 3. UTILITIES */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); color: #fff; padding: 14px 28px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(72,198,185,0.35); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(72,198,185,0.5); }
-.btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 2px solid rgba(255,255,255,0.6); color: #fff; padding: 12px 26px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; backdrop-filter: blur(4px); }
-.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
-.section-label { display: inline-block; background: var(--teal-light); color: var(--teal-dark); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border-radius: 50px; margin-bottom: 12px; }
-.section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
-.section-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
-
-/* 4. NAVBAR */
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 0; transition: all 0.3s ease; }
-.navbar.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); box-shadow: var(--shadow-sm); padding: 10px 0; }
-.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--text); }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; }
-.nav-links a:hover { color: var(--teal-dark); }
-.nav-book-btn { background: var(--teal); color: #fff !important; padding: 10px 20px; border-radius: 50px; font-weight: 600 !important; transition: all 0.3s ease !important; }
-.nav-book-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
-.hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
-.hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
-
-/* 5. HERO - FIXED DESKTOP CLIPPING */
-.hero { 
+.about-img-wrap { 
     position: relative; 
-    min-height: 800px; /* Changed from 100vh to fixed min-height to ensure space */
-    display: flex; 
-    align-items: center; 
-    overflow: visible; 
-}
-.hero-bg { position: absolute; inset: 0; z-index: 1; }
-.hero-bg img { width: 100%; height: 100% !important; object-fit: cover; }
-.hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(135deg, rgba(13,112,112,0.82) 0%, rgba(13,112,112,0.55) 60%, rgba(0,0,0,0.3) 100%); }
-.hero-content { 
-    position: relative; 
-    z-index: 2; 
-    width: 100%; 
-    padding: 220px 24px 100px; /* Increased top padding to stop text cutting */
-}
-.hero-inner { max-width: 680px; margin: 0 auto 0 calc((100% - 1200px) / 2 + 24px); }
-.hero h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 24px; }
-
-/* 7. GALLERY - FIXED IMAGE CUTTING */
-.gallery-slide img { 
-    width: 100%; 
-    height: 600px !important; /* Forces a taller view on desktop */
-    object-fit: cover; 
-    display: block; 
+    border-radius: var(--radius-lg); 
+    overflow: hidden; 
+    box-shadow: var(--shadow-lg); /* Added shadow to match gallery style */
 }
 
-/* 8. ABOUT - DOCTOR IMAGE FIX */
 .about-img-wrap img { 
     width: 100%; 
-    height: 650px !important; /* Ensures the full portrait is visible */
+    height: 480px !important; /* Matches .gallery-slide img height exactly */
     object-fit: cover; 
-    border-radius: var(--radius-lg); 
+    object-position: center 20%; /* Keeps the doctor's face in view while cropping the bottom */
+    display: block;
 }
 
-/* 12. RESPONSIVE - ENSURE NO OVERRIDES */
-@media (max-width: 1024px) {
-  .hero { min-height: auto; }
-  .hero-content { padding-top: 140px; }
-  .about-img-wrap img { height: 450px !important; }
-  .gallery-slide img { height: 400px !important; }
-}
-
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero-content { padding-top: 120px; text-align: center; }
-  .hero-inner { margin: 0 auto; }
-  .about-img-wrap img { height: 350px !important; }
-  .gallery-slide img { height: 300px !important; }
-}
+.about-img-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--teal), var(--teal-dark)); }
+.about-float-badge { position: absolute; bottom: 24px; left: 24px; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-radius: var(--radius-sm); padding: 12px 16px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow-md); z-index: 2; }
