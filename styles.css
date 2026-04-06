@@ -261,4 +261,4 @@ footer { background: #0a1f1f; color: rgba(255,255,255,0.8); }
   .about-stats { grid-template-columns: 1fr 1fr 1fr; }
   .contact-form-card { padding: 24px 18px; }
   .footer-bottom-inner { flex-direction: column; text-align: center; }
-};
+}
